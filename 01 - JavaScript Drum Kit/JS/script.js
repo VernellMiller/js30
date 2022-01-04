@@ -61,3 +61,45 @@ the [] around the data-key = "${event.keyCode}" is how you use attribute selecto
 // PART 2 END ------------------------------------------------------------------
 
 
+// PART 3 ----------------------------------------------------------------------
+
+/* checks if there is no audio element
+        - then return
+
+    if there is an audio element
+        - play audio.
+
+    sets audio time to 0
+
+    assigns a variable to an element that has a data-key attribute
+        - console logs the variable.
+
+*/
+
+// window.addEventListener("keydown", function(event) {
+//     const audio = document.querySelector(`audio[data-key = "${event.keyCode}"]`);
+//     const key = document.querySelector(`.key[data-key = "${event.keyCode}"]`);
+//     console.log(key);
+//     if (!audio) return;
+//     audio.currentTime = 0;
+//     audio.play();
+// });
+
+// PART 3 END ------------------------------------------------------------------
+
+
+// PART 4 ----------------------------------------------------------------------
+
+window.addEventListener("keydown", function(event) {
+    const audio = document.querySelector(`audio[data-key = "${event.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key = "${event.keyCode}"]`);
+    console.log(key);
+    if (!audio) return;
+    audio.currentTime = 0;
+    audio.play();
+
+
+    key.classList.add("playing"); //adds css classlist 
+});
+
+// PART 4 END ------------------------------------------------------------------
