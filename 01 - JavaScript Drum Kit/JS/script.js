@@ -48,12 +48,15 @@
 
 /* assigns a variable to an element that has a data-key attribute
 - console logs the variable.
+
+the [] around the data-key = "${event.keyCode}" is how you use attribute selector.
+        - select the attribute of the audio element
 */
 
-window.addEventListener("keydown", function(event){
-    const audio = document.querySelector(`audio[data-key = "${event.keyCode}"]`);
-    console.log(audio);
-});
+// window.addEventListener("keydown", function(event){
+//     const audio = document.querySelector(`audio[data-key = "${event.keyCode}"]`);
+//     console.log(audio);
+// });
 
 // PART 2 END ------------------------------------------------------------------
 
