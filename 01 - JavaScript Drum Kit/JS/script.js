@@ -90,16 +90,37 @@ the [] around the data-key = "${event.keyCode}" is how you use attribute selecto
 
 // PART 4 ----------------------------------------------------------------------
 
+// window.addEventListener("keydown", function(event) {
+//     const audio = document.querySelector(`audio[data-key = "${event.keyCode}"]`);
+//     const key = document.querySelector(`.key[data-key = "${event.keyCode}"]`);
+//     console.log(key);
+//     if (!audio) return;
+//     audio.currentTime = 0;
+//     audio.play();
+//     key.classList.add("playing"); //adds css classlist 
+// });
+
+// PART 4 END ------------------------------------------------------------------
+
+
+// PART 5 ----------------------------------------------------------------------
+
 window.addEventListener("keydown", function(event) {
     const audio = document.querySelector(`audio[data-key = "${event.keyCode}"]`);
     const key = document.querySelector(`.key[data-key = "${event.keyCode}"]`);
-    console.log(key);
+    // console.log(key);
     if (!audio) return;
     audio.currentTime = 0;
     audio.play();
-
-
     key.classList.add("playing"); //adds css classlist 
 });
 
-// PART 4 END ------------------------------------------------------------------
+function removeTransition(event) {
+    if(event.propertyName !== "transform") return;
+    this.classList.remove("playing");
+};
+
+const keys = document.querySelectorAll(".key");
+keys.forEach(key => key.addEventListener("transitionend", removeTransition));
+
+// PART 5 END ------------------------------------------------------------------
